@@ -394,7 +394,7 @@ All helpers accept the following optional named arguments (even though they are 
 | `locale` | An optional `String` [locale](https://momentjs.com/docs/#/i18n/), to override the default global `moment.locale` |
 | `timeZone` | An optional `String` [time zone](https://momentjs.com/timezone/docs/), defaults to `moment.timeZone` (the default time zone) |
 | `interval` | An optional interval `Number` of milliseconds when the helper should be recomputed |
-| `allow-empty` | An optional `Boolean` to ignore the `Invalid date` output when knowingly passing `null`, `undefined`, or `''`, defaults to `false` |
+| `allow-empty` | An optional `Boolean` to suppress errors when knowingly passing `null`, `undefined`, or `''`, defaults to `false` |
 
 **Note that `interval` does not recompute the value of the helper parameters, unless it is
 part of a helper that *is* a value in which case it is useful for "live" updating as time elapses.**
@@ -469,7 +469,7 @@ export default Ember.Controller.extend({
 
 ### Global Allow Empty Dates
 
-If `null`, `undefined`, or an empty string are passed as a date to any of the moment helpers then you will get `Invalid Date` in the output.  To avoid this issue globally, you can set the option `allowEmpty` which all of the helpers respect and will result in nothing being rendered instead of `Invalid Date`.
+If `null`, `undefined`, or an empty string are passed as a date to any of the moment helpers they will raise an error. To avoid this issue globally, you can set the option `allowEmpty` which all of the helpers respect and will result in no error and nothing being rendered.
 
 ```js
 // config/environment.js
@@ -566,7 +566,7 @@ export default Ember.Route.extend({
 
 An invalid date string is being passed into momentjs and/or the [input string format](https://momentjs.com/docs/#/parsing/string-format/) was omitted.
 
-If you are knowingly passing null, undefined, or an empty string and want to ignore the output of `Invalid Date` then pass the option `allow-empty=true` to the helper (all helpers accept this property)
+If you are knowingly passing null, undefined, or an empty string and want to avoid errors then pass the option `allow-empty=true` to the helper (all helpers accept this property)
 
 ```hbs
 {{moment-format ''}}  {{!-- Invalid date --}}

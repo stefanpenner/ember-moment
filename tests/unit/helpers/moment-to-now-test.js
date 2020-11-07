@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import EmberObject from '@ember/object';
 import { run } from '@ember/runloop';
 import hbs from 'htmlbars-inline-precompile';
@@ -96,7 +97,11 @@ test('can be called with null using global config option', function(assert) {
 test('unable to called with null overriding global config option', function(assert) {
   assert.expect(1);
 
+  const origOnerror = Ember.onerror;
+  Ember.onerror = () => assert.ok('empty value with allow-empty=false errors');
+
   this.set('date', null);
   this.render(hbs`{{moment-to-now date allow-empty=false}}`);
-  assert.equal(this.$().text(), 'Invalid date');
+
+  Ember.onerror = origOnerror;
 });

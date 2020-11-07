@@ -1,3 +1,4 @@
+import { assert } from '@ember/debug';
 import { isBlank } from '@ember/utils';
 import { get } from '@ember/object';
 
@@ -20,8 +21,7 @@ export default function(cb) {
         return;
       }
 
-      /* eslint-disable no-console */
-      console.warn(`ember-moment: an empty value (null, undefined, or "") was passed to ember-moment helper`);
+      assert(`ember-moment: an empty value (null, undefined, or "") was passed to ember-moment helper`);
     }
 
     return cb.apply(this, arguments);
