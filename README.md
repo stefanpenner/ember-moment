@@ -137,7 +137,6 @@ Formats a `<date>` to an optional `outputFormat` from an optional `inputFormat`.
 | `<dateA>` | Any value(s) [interpretable as a date/time](https://momentjs.com/docs/#/parsing/) by `moment` (a date `String` or a `Moment` or a `Date`...) |
 | `<dateB>` | An optional value(s) [interpretable as a date/time](https://momentjs.com/docs/#/parsing/) by `moment` (a date `String` or a `Moment` or a `Date`...), defaults to now |
 | `hideAffix` | An optional `Boolean` to hide the relative prefix/suffix or not.  |
-| `hideSuffix` | **Deprecated** An optional `Boolean` to hide the relative suffix or not. It was only available for `moment-from` and will be removed in `8.0.0`|
 
 Returns the time between `<dateA>` and `<dateB>` relative to `<dateB>`. See [`momentjs#from`](https://momentjs.com/docs/#/displaying/from/).
 
@@ -164,7 +163,6 @@ Returns the time between `<dateA>` and `<dateB>` relative to `<dateB>`. See [`mo
 | `<dateA>` | Any value(s) [interpretable as a date/time](https://momentjs.com/docs/#/parsing/) by `moment` (a date `String` or a `Moment` or a `Date`...) |
 | `<dateB>` | An optional value(s) [interpretable as a date/time](https://momentjs.com/docs/#/parsing/) by `moment` (a date `String` or a `Moment` or a `Date`...), defaults to now |
 | `hideAffix` | An optional `Boolean` to hide the relative prefix/suffix or not.  |
-| `hidePrefix` | **Deprecated** An optional `Boolean` to hide the relative prefix or not. It was only available for `moment-to` and will be removed in `8.0.0` |
 
 Returns the time between `<dateA>` and `<dateB>` relative to `<dateA>`. See [`momentjs#to`](https://momentjs.com/docs/#/displaying/to/).
 
